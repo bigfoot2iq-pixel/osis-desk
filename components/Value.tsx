@@ -57,12 +57,10 @@ export default function Value() {
           </RevealOnScroll>
           <RevealOnScroll className="right d1">
             <p className="lede">
-              Nous équipons bureaux, open-spaces et espaces d&apos;accueil à
-              Agadir — pour entreprises et particuliers, à l&apos;unité ou en
-              gros. Voici la différence que vous remarquerez.
+              Cinq raisons. Lisez en dix secondes.
             </p>
             <a href="#collection" className="btn btn-outline-ink">
-              Découvrir les produits <span className="arr">→</span>
+              Voir le catalogue <span className="arr">→</span>
             </a>
           </RevealOnScroll>
         </div>
@@ -72,35 +70,23 @@ export default function Value() {
             <div className="bc-glyph">
               <IconPlus />
             </div>
-            <div className="bc-num">— 01 / Sélection</div>
             <div className="bc-title">
-              56 références <em>triées sur le volet</em>. Pas un catalogue, une
-              curation.
+              56 références <em>triées</em>.
             </div>
             <p className="bc-text">
-              Chaque produit est testé, validé et garanti. Nous éliminons 9
-              fauteuils sur 10 pour ne garder que ceux qui tiennent la promesse
-              premium.
+              Pas un catalogue. Une curation.
             </p>
-            <div className="bc-swatches" aria-hidden="true">
-              <div className="bc-swatch" style={{ background: "#1A1F1B" }} />
-              <div className="bc-swatch" style={{ background: "#5B4A36" }} />
-              <div className="bc-swatch" style={{ background: "#0E5F55" }} />
-              <div className="bc-swatch" style={{ background: "#C8B89A" }} />
-            </div>
           </RevealOnScroll>
 
           <RevealOnScroll className="bento-card d1">
             <div className="bc-glyph">
               <IconCheck />
             </div>
-            <div className="bc-num">— 02 / Garantie</div>
             <div className="bc-title">
-              5 ans <em>de tranquillité</em>.
+              Garantie <em>5 ans</em>.
             </div>
             <p className="bc-text">
-              Pièces détachées dispo, intervention sous 48 h, remplacement si
-              défaut. Sans clauses cachées.
+              Pièces, intervention 48 h. Sans clauses cachées.
             </p>
           </RevealOnScroll>
 
@@ -108,15 +94,11 @@ export default function Value() {
             <div className="bc-glyph">
               <IconClock />
             </div>
-            <div className="bc-num">— 03 / Délai</div>
             <div className="bc-title">
-              Devis en <em>24 h</em>.
-              <br />
-              Livraison en 72 h.
+              Devis <em>24 h</em>, livraison <em>72 h</em>.
             </div>
             <p className="bc-text">
-              Stock permanent à Agadir. Vos équipes assises avant la fin de la
-              semaine.
+              Stock permanent à Agadir.
             </p>
           </RevealOnScroll>
 
@@ -124,14 +106,11 @@ export default function Value() {
             <div className="bc-glyph">
               <IconBuilding />
             </div>
-            <div className="bc-num">— 04 / Détail & gros</div>
             <div className="bc-title">
-              À l&apos;unité ou en <em>gros</em>.
+              Unité ou <em>gros</em>.
             </div>
             <p className="bc-text">
-              Une chaise pour le télétravail ou 80 postes pour vos bureaux.
-              Abdellah Bentaleb, votre interlocuteur dédié, du premier devis à
-              la dernière livraison.
+              Une chaise ou 80 postes. Même interlocuteur.
             </p>
           </RevealOnScroll>
 
@@ -139,13 +118,11 @@ export default function Value() {
             <div className="bc-glyph">
               <IconPin />
             </div>
-            <div className="bc-num">— 05 / Local</div>
             <div className="bc-title">
-              Showroom à <em>Agadir</em>.
+              Showroom <em>Agadir</em>.
             </div>
             <p className="bc-text">
-              Asseyez-vous, testez, comparez. Sur rendez-vous, du lundi au
-              vendredi.
+              Asseyez-vous, testez. Sur rendez-vous.
             </p>
           </RevealOnScroll>
         </div>

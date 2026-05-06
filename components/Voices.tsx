@@ -5,25 +5,17 @@ const voices = [
     delay: "d1",
     avatar: "av1",
     quote:
-      "« Livraison en 4 jours, montage soigné, fauteuils irréprochables. C'est rare en B2B. »",
+      "« Livraison en 4 jours, montage soigné. Rare en B2B. »",
     name: "Nadia Cherif",
-    role: "Resp. Facilities · Cabinet Meridian",
+    role: "Cabinet Meridian",
   },
   {
     delay: "d2",
     avatar: "av2",
     quote:
-      "« Notre espace d'accueil a été transformé. Les visiteurs nous font la remarque à chaque visite. »",
+      "« Notre accueil transformé. Les visiteurs le remarquent. »",
     name: "Sofiane Mrad",
-    role: "DRH · Technova Industries",
-  },
-  {
-    delay: "d3",
-    avatar: "av3",
-    quote:
-      "« Le seul fournisseur qui a pris le temps de comprendre nos enjeux avant de proposer un budget. »",
-    name: "Yasmine Ouali",
-    role: "COO · Nextlab Maroc",
+    role: "Technova Industries",
   },
 ];
 
@@ -31,22 +23,20 @@ export default function Voices() {
   return (
     <section id="voices">
       <div className="wrap">
-        <RevealOnScroll style={{ marginBottom: "clamp(40px, 5vw, 64px)" }}>
-          <span className="eyebrow">Ils nous font confiance</span>
+        <RevealOnScroll style={{ marginBottom: "clamp(28px, 3.5vw, 44px)" }}>
+          <span className="eyebrow">Témoignages</span>
           <h2 className="h2">
-            12 entreprises ont déjà
+            Choisi par <em>douze</em>
             <br />
-            choisi <em>leurs assises</em> avec nous.
+            entreprises à Agadir.
           </h2>
         </RevealOnScroll>
 
         <RevealOnScroll className="voice-feat">
           <div className="voice-feat-inner">
             <p className="voice-feat-q">
-              « OASIS Desk a équipé 18 postes en une semaine. La sélection
-              était juste, le SAV est <em>impeccable</em>, et nos
-              collaborateurs n&apos;ont jamais eu d&apos;aussi bons retours sur
-              leur poste de travail. »
+              « 18 postes équipés en une semaine. Sélection juste, SAV{" "}
+              <em>impeccable</em>. »
             </p>
             <div className="voice-feat-meta">
               <div className="vfm-stars">★★★★★</div>
@@ -62,7 +52,6 @@ export default function Voices() {
         <div className="voice-grid">
           {voices.map((voice) => (
             <RevealOnScroll key={voice.name} className={`voice ${voice.delay}`}>
-              <div className="voice-stars">★★★★★</div>
               <p className="voice-q">{voice.quote}</p>
               <div className="voice-foot">
                 <div className={`voice-av ${voice.avatar}`} />

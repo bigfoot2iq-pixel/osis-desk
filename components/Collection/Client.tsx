@@ -45,13 +45,6 @@ export default function CollectionClient({
           activeKey={activeCollection.key}
           onChange={setActiveKey}
         />
-        <a
-          href="#cta"
-          className="btn btn-outline-ink"
-          style={{ alignSelf: "flex-start", marginTop: ".5rem" }}
-        >
-          Demander un devis <span className="arr">→</span>
-        </a>
       </aside>
       <div className="prod-grid">
         {activeCollection.products.map((product) => (

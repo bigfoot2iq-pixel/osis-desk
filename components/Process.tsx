@@ -3,27 +3,27 @@ import RevealOnScroll from "./RevealOnScroll";
 const steps = [
   {
     delay: "",
-    num: "— 01",
-    title: "Brief express",
-    text: "15 minutes au téléphone. On comprend vos espaces, votre budget, votre échéance.",
+    num: "01",
+    title: "Brief",
+    text: "15 minutes. Espaces, budget, échéance.",
   },
   {
     delay: "d1",
-    num: "— 02",
-    title: "Devis chiffré",
-    text: "Sous 24 h, une sélection de 3 à 5 références argumentées. Tout est transparent.",
+    num: "02",
+    title: "Devis",
+    text: "Sous 24 h. 3 à 5 références argumentées.",
   },
   {
     delay: "d2",
-    num: "— 03",
-    title: "Validation showroom",
-    text: "Vous testez les modèles à Agadir. On ajuste avant de commander.",
+    num: "03",
+    title: "Showroom",
+    text: "Vous testez à Agadir. On ajuste.",
   },
   {
     delay: "d3",
-    num: "— 04",
-    title: "Livraison montée",
-    text: "72 h après. Nos équipes installent, briefent vos collaborateurs, repartent.",
+    num: "04",
+    title: "Livraison",
+    text: "72 h. Installation et briefing inclus.",
   },
 ];
 
@@ -42,9 +42,7 @@ export default function Process() {
           </RevealOnScroll>
           <RevealOnScroll className="d1">
             <p className="lede">
-              Une méthode simple, rodée projet après projet. Pas de surprise,
-              pas de retard, pas de SAV qui s&apos;éternise. Valable pour une
-              chaise comme pour une commande en gros.
+              Méthode rodée. Pas de surprise.
             </p>
           </RevealOnScroll>
         </div>

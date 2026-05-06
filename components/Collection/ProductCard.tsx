@@ -80,7 +80,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
         {product.sub ? <div className="prod-sub">{product.sub}</div> : null}
         <a href="#cta" className="prod-cta">
-          Voir le produit <span className="arr">→</span>
+          Demander un devis <span className="arr">→</span>
         </a>
       </div>
     </article>

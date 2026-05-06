@@ -1,31 +1,23 @@
 import RevealOnScroll from "./RevealOnScroll";
 
 const checks = [
-  "Devis chiffré sous 24 h ouvrées",
-  "Showroom physique à Agadir",
-  "Vente à l'unité ou en gros",
+  "Devis sous 24 h",
   "Livraison & montage inclus",
-  "Garantie 5 ans, SAV réactif",
+  "Garantie 5 ans",
 ];
 
 export default function CTA() {
   return (
     <section id="cta">
       <RevealOnScroll className="cta-card">
-        <span className="cta-art" aria-hidden="true">
-          Antre.
-        </span>
         <div className="cta-l">
           <h2 className="cta-h">
-            Prêt à équiper
+            Équipez votre bureau
             <br />
-            votre bureau <em>comme
-            <br />
-            il le mérite</em> ?
+            <em>comme il le mérite</em>.
           </h2>
           <p className="cta-sub">
-            Une chaise pour vous ou des dizaines pour vos équipes — devis
-            gratuit sous 24 h, sans engagement.
+            Devis gratuit sous 24 h. Sans engagement.
           </p>
           <div className="cta-actions">
             <a href="tel:+212624828155" className="btn cta-btn-light">

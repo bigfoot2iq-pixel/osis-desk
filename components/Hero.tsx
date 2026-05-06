@@ -7,7 +7,7 @@ export default function Hero() {
         <div className="hero-l">
           <span className="hero-tag">
             <span className="pulse" />
-            Collection 2026 — Disponible
+            Collection 2026
           </span>
           <h1 className="hero-h1">
             <span className="lh">Asseyez votre</span>{" "}
