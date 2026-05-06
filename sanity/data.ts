@@ -9,7 +9,11 @@ import type { CatalogCollection } from "./types";
 export async function getCatalog(): Promise<CatalogCollection[]> {
   "use cache";
 
-  cacheLife(process.env.NODE_ENV === "development" ? "seconds" : "hours");
+  if (process.env.NODE_ENV === "development") {
+    cacheLife("seconds");
+  } else {
+    cacheLife("hours");
+  }
   cacheTag("catalog");
   cacheTag("collection");
   cacheTag("product");
