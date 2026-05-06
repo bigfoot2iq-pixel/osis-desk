@@ -14,9 +14,9 @@ export default function Hero() {
             <em className="lh">autorité.</em>
           </h1>
           <p className="hero-sub">
-            Mobilier de bureau d&apos;exception pour entreprises exigeantes.
-            Chaque assise pensée pour durer dix ans — et imposer le standard
-            dès la première minute.
+            Chaises, fauteuils et bureaux pour entreprises et particuliers à
+            Agadir. À l&apos;unité ou en gros — chaque pièce pensée pour durer
+            dix ans, avec garantie et SAV.
           </p>
           <div className="hero-actions">
             <a href="#cta" className="btn btn-primary">
@@ -32,7 +32,7 @@ export default function Hero() {
               ★★★★★
             </div>
             <div className="hero-meta-text">
-              <strong>4.9/5</strong> · 120+ entreprises équipées au Maroc
+              <strong>4.9/5</strong> · 12 entreprises équipées à Agadir
             </div>
           </div>
         </div>

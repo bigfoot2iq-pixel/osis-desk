@@ -2,10 +2,10 @@ import RevealOnScroll from "./RevealOnScroll";
 
 const checks = [
   "Devis chiffré sous 24 h ouvrées",
-  "Showroom physique à Casablanca",
+  "Showroom physique à Agadir",
+  "Vente à l'unité ou en gros",
   "Livraison & montage inclus",
   "Garantie 5 ans, SAV réactif",
-  "Interlocuteur dédié, pas de standard",
 ];
 
 export default function CTA() {
@@ -19,13 +19,13 @@ export default function CTA() {
           <h2 className="cta-h">
             Prêt à équiper
             <br />
-            votre entreprise <em>comme
+            votre bureau <em>comme
             <br />
-            elle le mérite</em> ?
+            il le mérite</em> ?
           </h2>
           <p className="cta-sub">
-            Un devis gratuit, sous 24 h, sans engagement. Vos équipes vont
-            adorer la différence.
+            Une chaise pour vous ou des dizaines pour vos équipes — devis
+            gratuit sous 24 h, sans engagement.
           </p>
           <div className="cta-actions">
             <a href="tel:+212624828155" className="btn cta-btn-light">

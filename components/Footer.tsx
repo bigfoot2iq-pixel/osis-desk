@@ -1,14 +1,3 @@
-const footerColumns = [
-  {
-    title: "Collections",
-    links: ["Direction", "Productif", "Pause & Café", "Bureaux", "Rangements"],
-  },
-  {
-    title: "Entreprise",
-    links: ["Notre approche", "Catalogue 2026", "Références", "Showroom"],
-  },
-];
-
 export default function Footer() {
   return (
     <footer>
@@ -20,28 +9,13 @@ export default function Footer() {
               OASIS Desk
             </div>
             <p className="ft-tag">
-              Mobilier de bureau d&apos;exception. Direction, productif,
-              accueil — pour les entreprises qui prennent leurs assises au
-              sérieux.
+              Chaises de bureau, fauteuils et bureaux à Agadir.
             </p>
             <div className="ft-mini">
               <span className="ft-mini-pulse" />
               <span className="ft-mini-text">Disponible — Lun-Ven, 9 h – 18 h</span>
             </div>
           </div>
-
-          {footerColumns.map((column) => (
-            <div key={column.title}>
-              <div className="ft-h">{column.title}</div>
-              <ul className="ft-list">
-                {column.links.map((link) => (
-                  <li key={link}>
-                    <a href="#collection">{link}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
 
           <div>
             <div className="ft-h">Contact</div>
@@ -52,12 +26,7 @@ export default function Footer() {
               <li>
                 <a href="mailto:contact@oasisdesk.ma">contact@oasisdesk.ma</a>
               </li>
-              <li>
-                <a href="#cta">Casablanca, Maroc</a>
-              </li>
-              <li>
-                <a href="#cta">Demander un devis</a>
-              </li>
+              <li>Agadir, Maroc</li>
             </ul>
           </div>
         </div>
@@ -67,9 +36,9 @@ export default function Footer() {
         <div className="ft-bot">
           <div className="ft-cp">© 2026 OASIS Desk · Tous droits réservés</div>
           <div className="ft-legal">
-            <a href="#">Mentions légales</a>
-            <a href="#">Confidentialité</a>
-            <a href="#">CGV</a>
+            <a href="/mentions-legales">Mentions légales</a>
+            <a href="/confidentialite">Confidentialité</a>
+            <a href="/cgv">CGV</a>
           </div>
         </div>
       </div>

@@ -57,9 +57,9 @@ export default function Value() {
           </RevealOnScroll>
           <RevealOnScroll className="right d1">
             <p className="lede">
-              Nous équipons les directions, les open-spaces et les espaces
-              d&apos;accueil des entreprises les plus exigeantes du Maroc. Ce
-              qui suit, c&apos;est la différence que vous remarquerez.
+              Nous équipons bureaux, open-spaces et espaces d&apos;accueil à
+              Agadir — pour entreprises et particuliers, à l&apos;unité ou en
+              gros. Voici la différence que vous remarquerez.
             </p>
             <a href="#collection" className="btn btn-outline-ink">
               Découvrir les produits <span className="arr">→</span>
@@ -115,8 +115,8 @@ export default function Value() {
               Livraison en 72 h.
             </div>
             <p className="bc-text">
-              Stock permanent à Casablanca. Vos équipes assises avant la fin de
-              la semaine.
+              Stock permanent à Agadir. Vos équipes assises avant la fin de la
+              semaine.
             </p>
           </RevealOnScroll>
 
@@ -124,13 +124,14 @@ export default function Value() {
             <div className="bc-glyph">
               <IconBuilding />
             </div>
-            <div className="bc-num">— 04 / Conseil</div>
+            <div className="bc-num">— 04 / Détail & gros</div>
             <div className="bc-title">
-              Un interlocuteur, pas un <em>standard</em>.
+              À l&apos;unité ou en <em>gros</em>.
             </div>
             <p className="bc-text">
-              Abdellah Bentaleb, votre commercial dédié, du premier devis à la
-              dernière livraison.
+              Une chaise pour le télétravail ou 80 postes pour vos bureaux.
+              Abdellah Bentaleb, votre interlocuteur dédié, du premier devis à
+              la dernière livraison.
             </p>
           </RevealOnScroll>
 
@@ -140,7 +141,7 @@ export default function Value() {
             </div>
             <div className="bc-num">— 05 / Local</div>
             <div className="bc-title">
-              Showroom à <em>Casablanca</em>.
+              Showroom à <em>Agadir</em>.
             </div>
             <p className="bc-text">
               Asseyez-vous, testez, comparez. Sur rendez-vous, du lundi au

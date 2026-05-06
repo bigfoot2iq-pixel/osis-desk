@@ -34,7 +34,7 @@ export default function Voices() {
         <RevealOnScroll style={{ marginBottom: "clamp(40px, 5vw, 64px)" }}>
           <span className="eyebrow">Ils nous font confiance</span>
           <h2 className="h2">
-            120+ entreprises ont déjà
+            12 entreprises ont déjà
             <br />
             choisi <em>leurs assises</em> avec nous.
           </h2>
@@ -43,7 +43,7 @@ export default function Voices() {
         <RevealOnScroll className="voice-feat">
           <div className="voice-feat-inner">
             <p className="voice-feat-q">
-              « OASIS Desk a équipé 78 postes en deux semaines. La sélection
+              « OASIS Desk a équipé 18 postes en une semaine. La sélection
               était juste, le SAV est <em>impeccable</em>, et nos
               collaborateurs n&apos;ont jamais eu d&apos;aussi bons retours sur
               leur poste de travail. »
@@ -54,7 +54,7 @@ export default function Voices() {
                 <div className="vfm-name">Karim Benali</div>
                 <div className="vfm-role">Directeur Général</div>
               </div>
-              <div className="vfm-co">Groupe Altitude · Casablanca</div>
+              <div className="vfm-co">Groupe Altitude · Agadir</div>
             </div>
           </div>
         </RevealOnScroll>

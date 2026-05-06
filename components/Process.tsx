@@ -17,7 +17,7 @@ const steps = [
     delay: "d2",
     num: "— 03",
     title: "Validation showroom",
-    text: "Vous testez les modèles à Casablanca. On ajuste avant de commander.",
+    text: "Vous testez les modèles à Agadir. On ajuste avant de commander.",
   },
   {
     delay: "d3",
@@ -42,8 +42,9 @@ export default function Process() {
           </RevealOnScroll>
           <RevealOnScroll className="d1">
             <p className="lede">
-              Une méthode rodée sur 120+ projets. Pas de surprise, pas de
-              retard, pas de SAV qui s&apos;éternise.
+              Une méthode simple, rodée projet après projet. Pas de surprise,
+              pas de retard, pas de SAV qui s&apos;éternise. Valable pour une
+              chaise comme pour une commande en gros.
             </p>
           </RevealOnScroll>
         </div>

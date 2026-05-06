@@ -900,6 +900,41 @@ nav.lit {
   transform: scale(1.1);
 }
 
+.prod-dots {
+  bottom: 12px;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: 2;
+}
+
+.prod-dot {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(14, 18, 15, 0.15);
+  border-radius: 999px;
+  cursor: pointer;
+  height: 7px;
+  padding: 0;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    width 0.2s;
+  width: 7px;
+}
+
+.prod-dot:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.prod-dot.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  width: 18px;
+}
+
 .prod-info {
   display: flex;
   flex-direction: column;

@@ -2,9 +2,10 @@
 
 import type { SanityImageSource } from "@sanity/image-url";
 import Image from "next/image";
+import { useState } from "react";
 
 import { urlFor } from "@/sanity/client";
-import type { CatalogProduct } from "@/sanity/types";
+import type { CatalogImage, CatalogProduct } from "@/sanity/types";
 
 import ProductIllustration from "./ProductIllustrations";
 
@@ -15,18 +16,20 @@ type ProductCardProps = {
   product: CatalogProduct;
 };
 
-export default function ProductCard({ product }: ProductCardProps) {
-  const image = product.image?.asset ? product.image : null;
-  const imageUrl = image
-    ? urlFor(image as SanityImageSource)
-        .width(PRODUCT_IMAGE_WIDTH)
-        .height(PRODUCT_IMAGE_HEIGHT)
-        .fit("crop")
-        .auto("format")
-        .url()
-    : null;
+function buildImageUrl(image: CatalogImage) {
+  return urlFor(image as SanityImageSource)
+    .width(PRODUCT_IMAGE_WIDTH)
+    .height(PRODUCT_IMAGE_HEIGHT)
+    .fit("crop")
+    .auto("format")
+    .url();
+}
 
-  const lqip = image?.asset?.metadata?.lqip;
+export default function ProductCard({ product }: ProductCardProps) {
+  const images = (product.images ?? []).filter((img) => img?.asset);
+  const [active, setActive] = useState(0);
+  const current = images[active] ?? null;
+  const lqip = current?.asset?.metadata?.lqip;
 
   return (
     <article className="prod">
@@ -39,21 +42,36 @@ export default function ProductCard({ product }: ProductCardProps) {
         <button className="prod-fav" aria-label={`Favori ${product.name}`}>
           ♡
         </button>
-        {imageUrl ? (
+        {current ? (
           <Image
             className="prod-img"
-            src={imageUrl}
-            alt={image?.alt || product.name}
+            src={buildImageUrl(current)}
+            alt={current.alt || product.name}
             width={PRODUCT_IMAGE_WIDTH}
             height={PRODUCT_IMAGE_HEIGHT}
             sizes="(min-width: 1280px) 22vw, (min-width: 700px) 40vw, 90vw"
             placeholder={lqip ? "blur" : "empty"}
             blurDataURL={lqip}
-            unoptimized
+            key={active}
           />
         ) : (
           <ProductIllustration type={product.illustration} />
         )}
+        {images.length > 1 ? (
+          <div className="prod-dots" role="tablist" aria-label="Images du produit">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                role="tab"
+                aria-selected={i === active}
+                aria-label={`Image ${i + 1} sur ${images.length}`}
+                className={`prod-dot${i === active ? " is-active" : ""}`}
+                onClick={() => setActive(i)}
+              />
+            ))}
+          </div>
+        ) : null}
       </div>
       <div className="prod-info">
         <div className="prod-row">

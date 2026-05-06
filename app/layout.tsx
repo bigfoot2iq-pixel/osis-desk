@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -22,9 +24,35 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OASIS Desk | Mobilier de bureau premium au Maroc",
+  metadataBase: new URL("https://oasisdesk.ma"),
+  title:
+    "OASIS Desk | Chaises de bureau, fauteuils & bureaux à Agadir — détail & gros",
   description:
-    "Mobilier de bureau d'exception pour directions, open-spaces et espaces d'accueil au Maroc.",
+    "Vente de chaises de bureau, fauteuils ergonomiques et bureaux à Agadir. À l'unité pour particuliers ou en gros pour entreprises. Showroom à Agadir, livraison au Maroc, garantie 5 ans.",
+  keywords: [
+    "chaise de bureau Agadir",
+    "fauteuil de bureau Maroc",
+    "bureau Agadir",
+    "mobilier de bureau Agadir",
+    "chaise ergonomique Maroc",
+    "fauteuil président",
+    "vente en gros mobilier bureau",
+    "chaise bureau pas cher Maroc",
+    "bureau pour entreprise",
+    "chaise de bureau particulier",
+    "OASIS Desk",
+  ],
+  openGraph: {
+    title:
+      "OASIS Desk | Chaises, fauteuils & bureaux à Agadir — détail & gros",
+    description:
+      "Chaises de bureau, fauteuils et bureaux à Agadir. À l'unité ou en gros, pour particuliers et entreprises. Showroom à Agadir.",
+    locale: "fr_MA",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://oasisdesk.ma",
+  },
 };
 
 export default function RootLayout({
@@ -37,7 +65,11 @@ export default function RootLayout({
       lang="fr"
       className={`${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }

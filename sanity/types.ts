@@ -32,7 +32,7 @@ export type CatalogProduct = {
   sub?: string;
   price?: string;
   badge?: string | null;
-  image?: CatalogImage | null;
+  images?: CatalogImage[] | null;
   illustration?: IllustrationKey;
 };
 

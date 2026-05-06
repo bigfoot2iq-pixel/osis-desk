@@ -55,6 +55,7 @@ export const product = defineType({
       name: "images",
       title: "Images",
       type: "array",
+      validation: (rule) => rule.max(3),
       of: [
         defineArrayMember({
           type: "image",

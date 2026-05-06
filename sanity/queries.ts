@@ -13,7 +13,7 @@ export const collectionsQuery = defineQuery(`
       sub,
       price,
       badge,
-      "image": images[0] {
+      "images": images[] {
         ...,
         asset->{
           _id,
