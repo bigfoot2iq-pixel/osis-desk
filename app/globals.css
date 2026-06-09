@@ -161,15 +161,62 @@ nav.lit {
 
 .logo {
   align-items: center;
-  color: var(--ink);
+  color: var(--teal);
   display: inline-flex;
-  font-family: var(--sans);
-  font-size: 0.82rem;
-  font-weight: 600;
   gap: 8px;
-  letter-spacing: 0;
   text-decoration: none;
   transition: color 0.3s;
+}
+
+.logo-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: inherit;
+  line-height: 1;
+}
+
+.logo-glyph {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+}
+
+.logo-word {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo-word strong {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.005em;
+  line-height: 0.9;
+}
+
+.logo-word span {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.55rem;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  opacity: 0.78;
+  padding-left: 1px;
+}
+
+.ft-mark .logo-glyph {
+  width: 36px;
+  height: 36px;
+}
+
+.ft-mark .logo-word strong {
+  font-size: 1.22rem;
+}
+
+.ft-mark .logo-word span {
+  font-size: 0.6rem;
 }
 
 .logo-mark {

@@ -1,3 +1,5 @@
+import Logo from "./Logo";
+
 export default function Footer() {
   return (
     <footer>
@@ -5,8 +7,7 @@ export default function Footer() {
         <div className="ft-top">
           <div>
             <div className="ft-mark">
-              <span className="logo-mark">O</span>
-              OASIS Desk
+              <Logo />
             </div>
             <p className="ft-tag">
               Chaises de bureau, fauteuils et bureaux à Agadir.

@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 import { whatsappUrl } from "@/lib/contact";
 
+import Logo from "./Logo";
+
 const links = [
   { href: "#collection", label: "Collection" },
   { href: "#value", label: "Pourquoi nous" },
@@ -36,8 +38,7 @@ export default function Nav() {
     <>
       <nav id="nav" className={lit ? "lit" : undefined}>
         <a href="#" className="logo" aria-label="OASIS Desk accueil" onClick={close}>
-          <span className="logo-mark">O</span>
-          <span>OASIS Desk</span>
+          <Logo />
         </a>
         <div className="nav-r">
           <ul className="nav-links">
