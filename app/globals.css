@@ -2835,3 +2835,354 @@ footer {
     animation: none !important;
   }
 }
+
+/* ============================================================
+   CTA — eyebrow + call link
+   ============================================================ */
+.cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.1rem;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cta-eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.cta-l .cta-checklist {
+  margin-top: 1.6rem;
+}
+
+.cta-call {
+  display: inline-block;
+  margin-top: 1.6rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 2px;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.cta-call:hover {
+  color: var(--white);
+  border-color: var(--accent);
+}
+
+/* ============================================================
+   Quote form (WhatsApp) — white card on the teal CTA
+   ============================================================ */
+.qf {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: clamp(20px, 2.4vw, 28px);
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 30px 60px -38px rgba(8, 28, 24, 0.6);
+}
+
+.qf-modes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  background: var(--bg-2);
+  border-radius: 999px;
+}
+
+.qf-mode {
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--mid);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+}
+
+.qf-mode.on {
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 2px 8px -3px rgba(14, 18, 15, 0.25);
+}
+
+.qf-hint {
+  margin: 2px 0 4px;
+  color: var(--mid);
+  font-size: 0.8rem;
+}
+
+.qf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.qf-label {
+  color: var(--ink-2);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.qf-input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.qf-input::placeholder {
+  color: #a9a59a;
+}
+
+.qf-input:focus {
+  outline: none;
+  background: var(--white);
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(14, 95, 85, 0.12);
+}
+
+.qf-textarea {
+  resize: vertical;
+  min-height: 56px;
+}
+
+.qf-row {
+  display: flex;
+  gap: 10px;
+}
+
+.qf-grow {
+  flex: 1;
+}
+
+.qf-qte {
+  width: 92px;
+  flex: 0 0 auto;
+}
+
+.qf-err {
+  margin: 0;
+  color: #b23b2e;
+  font-size: 0.78rem;
+}
+
+.qf-submit {
+  justify-content: center;
+  gap: 9px;
+  margin-top: 4px;
+  background: #25d366;
+  color: #06351c;
+  font-weight: 600;
+}
+
+.qf-submit:hover {
+  background: #1fb858;
+  color: #06351c;
+}
+
+.qf-note {
+  margin: 0;
+  text-align: center;
+  color: var(--mid);
+  font-size: 0.72rem;
+}
+
+/* ============================================================
+   Showroom
+   ============================================================ */
+#showroom {
+  background: var(--bg);
+  border-top: 1px solid var(--rule);
+  padding: clamp(48px, 6vw, 88px) 0;
+}
+
+.show-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.show-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.show-info .h2,
+.show-info .lede {
+  margin: 0;
+}
+
+.show-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-top: 0.4rem;
+  list-style: none;
+}
+
+.show-meta li {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.show-k {
+  color: var(--mid);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-top: 2px;
+}
+
+.show-v {
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.show-v a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+.show-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.show-badge {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--teal-lt);
+  color: var(--teal-dk);
+  font-size: 0.76rem;
+  font-weight: 500;
+}
+
+.show-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 0.4rem;
+}
+
+.show-map {
+  position: relative;
+  min-height: 360px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--bg-2);
+}
+
+.show-map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.2) contrast(1.02);
+}
+
+/* ============================================================
+   Floating WhatsApp button
+   ============================================================ */
+.wa-fab {
+  position: fixed;
+  right: clamp(16px, 3vw, 28px);
+  bottom: clamp(16px, 3vw, 28px);
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px 13px 15px;
+  border-radius: 999px;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  box-shadow: 0 14px 30px -10px rgba(37, 211, 102, 0.6);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  animation: waPop 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.8s;
+}
+
+.wa-fab:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 18px 36px -10px rgba(37, 211, 102, 0.7);
+}
+
+@keyframes waPop {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 760px) {
+  .show-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .show-map {
+    min-height: 280px;
+    order: -1;
+  }
+
+  .wa-fab-text {
+    display: none;
+  }
+
+  .wa-fab {
+    padding: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-fab {
+    animation: none;
+  }
+}

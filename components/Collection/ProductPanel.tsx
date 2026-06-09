@@ -5,13 +5,12 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
+import { whatsappUrl } from "@/lib/contact";
 import { urlFor } from "@/sanity/client";
 import type { CatalogImage, CatalogProduct } from "@/sanity/types";
 
 import PortableText from "./PortableText";
 import ProductIllustration from "./ProductIllustrations";
-
-const WHATSAPP_NUMBER = "212624828155";
 
 type ProductPanelProps = {
   product: CatalogProduct | null;
@@ -137,7 +136,7 @@ export default function ProductPanel({ product, onClose }: ProductPanelProps) {
     .split(/[·•|]/)
     .map((part) => part.trim())
     .filter(Boolean);
-  const waMessage = encodeURIComponent(
+  const waHref = whatsappUrl(
     `Bonjour OASIS Desk, je souhaite un devis pour : ${shown.name}.`,
   );
   const hasDescription = Array.isArray(shown.description)
@@ -307,7 +306,7 @@ export default function ProductPanel({ product, onClose }: ProductPanelProps) {
             Demander un devis <span className="arr">→</span>
           </a>
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`}
+            href={waHref}
             className="btn btn-outline-ink pdp-cta-wa"
             target="_blank"
             rel="noopener noreferrer"

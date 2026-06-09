@@ -2,11 +2,14 @@
 
 import { useEffect, useState } from "react";
 
+import { whatsappUrl } from "@/lib/contact";
+
 const links = [
   { href: "#collection", label: "Collection" },
   { href: "#value", label: "Pourquoi nous" },
   { href: "#process", label: "Processus" },
   { href: "#voices", label: "Témoignages" },
+  { href: "#showroom", label: "Showroom" },
 ];
 
 export default function Nav() {
@@ -83,6 +86,15 @@ export default function Nav() {
         </a>
         <a href="tel:+212624828155" className="mobile-menu-phone" onClick={close}>
           +212 624 828 155
+        </a>
+        <a
+          href={whatsappUrl("Bonjour OASIS Desk, j'ai une question.")}
+          className="mobile-menu-phone"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={close}
+        >
+          WhatsApp
         </a>
       </div>
     </>

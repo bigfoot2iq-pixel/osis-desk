@@ -4,8 +4,10 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Nav from "@/components/Nav";
 import Process from "@/components/Process";
+import Showroom from "@/components/Showroom";
 import Value from "@/components/Value";
 import Voices from "@/components/Voices";
+import WhatsAppFab from "@/components/WhatsAppFab";
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
@@ -39,9 +41,11 @@ export default function Home() {
         <Value />
         <Process />
         <Voices />
+        <Showroom />
         <CTA />
       </main>
       <Footer />
+      <WhatsAppFab />
     </>
   );
 }
