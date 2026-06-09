@@ -1,3 +1,5 @@
+import type { PortableTextBlock } from "@portabletext/types";
+
 export type IllustrationKey =
   | "chair1"
   | "chair2"
@@ -32,8 +34,12 @@ export type CatalogProduct = {
   sub?: string;
   price?: string;
   badge?: string | null;
+  description?: PortableTextBlock[] | null;
   images?: CatalogImage[] | null;
   illustration?: IllustrationKey;
+  categoryTitle?: string | null;
+  categoryKey?: string | null;
+  _createdAt?: string;
 };
 
 export type CatalogCollection = {

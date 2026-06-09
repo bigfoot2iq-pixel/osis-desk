@@ -10,7 +10,13 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true,
+  // Caching is handled by `'use cache'` + tag revalidation, so we read fresh
+  // from the API (the CDN adds its own staleness on top, which made newly
+  // published products take longer to appear).
+  useCdn: false,
+  // Only ever serve published documents on the public site — keeps catalog
+  // output deterministic and never leaks drafts.
+  perspective: "published",
 });
 
 const builder = createImageUrlBuilder({ projectId, dataset });
