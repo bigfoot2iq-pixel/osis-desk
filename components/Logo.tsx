@@ -11,7 +11,7 @@ export default function Logo({ className }: LogoProps) {
   return (
     <span className={`logo-lockup${className ? ` ${className}` : ""}`}>
       <Image
-        src="/icon.jpg"
+        src="/icon.png"
         alt="osis logo"
         width={50}
         height={50}
