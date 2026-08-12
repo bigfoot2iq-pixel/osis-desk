@@ -1,3 +1,6 @@
+"use client";
+
+import { useCatalog } from "./CatalogContext";
 import RevealOnScroll from "./RevealOnScroll";
 
 function IconPlus() {
@@ -43,6 +46,12 @@ function IconPin() {
 }
 
 export default function Value() {
+  const { collections } = useCatalog();
+  const total = collections.reduce(
+    (sum, collection) => sum + collection.products.length,
+    0,
+  );
+
   return (
     <section id="value">
       <div className="wrap">
@@ -50,14 +59,15 @@ export default function Value() {
           <RevealOnScroll>
             <span className="eyebrow">Pourquoi OASIS Desk</span>
             <h2 className="h2">
-              Du mobilier qui <em>travaille</em>
+              Du mobilier pensé pour <em>durer</em>,
               <br />
-              aussi dur que vous.
+              aussi exigeant que vos équipes.
             </h2>
           </RevealOnScroll>
           <RevealOnScroll className="right d1">
             <p className="lede">
-              Cinq raisons. Lisez en dix secondes.
+              Cinq engagements concrets, du premier devis au service
+              après-vente.
             </p>
             <a href="#collection" className="btn btn-outline-ink">
               Voir le catalogue <span className="arr">→</span>
@@ -71,10 +81,12 @@ export default function Value() {
               <IconPlus />
             </div>
             <div className="bc-title">
-              56 références <em>triées</em>.
+              {total > 0 ? `${total} références` : "Des références"}{" "}
+              <em>sélectionnées</em>.
             </div>
             <p className="bc-text">
-              Pas un catalogue. Une curation.
+              Chaque modèle éprouvé pour un usage intensif — une sélection, pas
+              un catalogue de revendeur.
             </p>
           </RevealOnScroll>
 
@@ -86,7 +98,8 @@ export default function Value() {
               Garantie <em>5 ans</em>.
             </div>
             <p className="bc-text">
-              Pièces, intervention 48 h. Sans clauses cachées.
+              Pièces et main-d&apos;œuvre couvertes, intervention sous 48 h.
+              Sans clause cachée.
             </p>
           </RevealOnScroll>
 
@@ -98,7 +111,7 @@ export default function Value() {
               Devis <em>24 h</em>, livraison <em>72 h</em>.
             </div>
             <p className="bc-text">
-              Stock permanent à Agadir.
+              Stock permanent à Agadir, expédition partout au Maroc.
             </p>
           </RevealOnScroll>
 
@@ -107,10 +120,10 @@ export default function Value() {
               <IconBuilding />
             </div>
             <div className="bc-title">
-              Unité ou <em>gros</em>.
+              À l&apos;unité ou en <em>gros</em>.
             </div>
             <p className="bc-text">
-              Une chaise ou 80 postes. Même interlocuteur.
+              D&apos;une chaise à 80 postes, un seul interlocuteur dédié.
             </p>
           </RevealOnScroll>
 
@@ -119,10 +132,10 @@ export default function Value() {
               <IconPin />
             </div>
             <div className="bc-title">
-              Showroom <em>Agadir</em>.
+              Showroom à <em>Agadir</em>.
             </div>
             <p className="bc-text">
-              Asseyez-vous, testez. Sur rendez-vous.
+              Essayez chaque assise avant de commander, sur rendez-vous.
             </p>
           </RevealOnScroll>
         </div>

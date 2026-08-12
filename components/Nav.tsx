@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { whatsappUrl } from "@/lib/contact";
 
 import Logo from "./Logo";
+import SearchBar from "./SearchBar";
 
 const links = [
   { href: "#collection", label: "Collection" },
@@ -37,32 +38,42 @@ export default function Nav() {
   return (
     <>
       <nav id="nav" className={lit ? "lit" : undefined}>
-        <a href="#" className="logo" aria-label="OASIS Desk accueil" onClick={close}>
-          <Logo />
-        </a>
-        <div className="nav-r">
-          <ul className="nav-links">
-            {links.map((link) => (
-              <li key={link.href}>
-                <a href={link.href}>{link.label}</a>
-              </li>
-            ))}
-          </ul>
-          <a href="#cta" className="nav-cta nav-cta-desktop">
-            Devis gratuit <span className="arr">↗</span>
+        <div className="nav-inner">
+          <a href="#" className="logo" aria-label="OASIS Desk accueil" onClick={close}>
+            <Logo />
           </a>
-          <button
-            type="button"
-            className={`nav-burger${open ? " is-open" : ""}`}
-            aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
+
+          <div className="nav-search">
+            <SearchBar />
+          </div>
+
+          <div className="nav-r">
+            <ul className="nav-links">
+              {links.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+            <a href="tel:+212624828155" className="nav-phone">
+              +212 624 828 155
+            </a>
+            <a href="#cta" className="nav-cta nav-cta-desktop">
+              Devis gratuit <span className="arr">↗</span>
+            </a>
+            <button
+              type="button"
+              className={`nav-burger${open ? " is-open" : ""}`}
+              aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+          </div>
         </div>
       </nav>
 

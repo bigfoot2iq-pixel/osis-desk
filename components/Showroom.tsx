@@ -20,8 +20,9 @@ export default function Showroom() {
               <br />à <em>{SHOWROOM.city}</em>.
             </h2>
             <p className="lede">
-              Touchez les matières, testez l&apos;assise. Notre équipe vous
-              conseille — à l&apos;unité comme en gros.
+              Touchez les matières, testez l&apos;assise, comparez les
+              finitions. Notre équipe vous conseille et chiffre votre projet —
+              à l&apos;unité comme en gros.
             </p>
 
             <ul className="show-meta">

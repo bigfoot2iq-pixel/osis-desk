@@ -1,4 +1,26 @@
+import { EMAIL, HOURS, PHONE, PHONE_DISPLAY, SHOWROOM } from "@/lib/contact";
+
 import Logo from "./Logo";
+
+const catalogue = [
+  { href: "#collection", label: "Fauteuils de direction" },
+  { href: "#collection", label: "Sièges opérateur & mesh" },
+  { href: "#collection", label: "Accueil & réception" },
+  { href: "#collection", label: "Tout le catalogue" },
+];
+
+const company = [
+  { href: "#value", label: "Pourquoi nous" },
+  { href: "#process", label: "Notre méthode" },
+  { href: "#voices", label: "Témoignages" },
+  { href: "#showroom", label: "Showroom Agadir" },
+];
+
+const badges = [
+  "Paiement à la livraison",
+  "Livraison partout au Maroc",
+  "Garantie 5 ans",
+];
 
 export default function Footer() {
   return (
@@ -10,27 +32,62 @@ export default function Footer() {
               <Logo />
             </div>
             <p className="ft-tag">
-              Chaises de bureau, fauteuils et bureaux à Agadir.
+              Chaises de bureau, fauteuils de direction et bureaux à Agadir.
+              Vente à l&apos;unité et en gros, partout au Maroc.
             </p>
             <div className="ft-mini">
               <span className="ft-mini-pulse" />
-              <span className="ft-mini-text">Disponible — Lun-Ven, 9 h – 18 h</span>
+              <span className="ft-mini-text">Ouvert — {HOURS}</span>
             </div>
+          </div>
+
+          <div>
+            <div className="ft-h">Catalogue</div>
+            <ul className="ft-list">
+              {catalogue.map((item) => (
+                <li key={item.label}>
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <div className="ft-h">Entreprise</div>
+            <ul className="ft-list">
+              {company.map((item) => (
+                <li key={item.label}>
+                  <a href={item.href}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div>
             <div className="ft-h">Contact</div>
             <ul className="ft-list">
               <li>
-                <a href="tel:+212624828155">+212 624 828 155</a>
+                <a href={`tel:${PHONE}`}>{PHONE_DISPLAY}</a>
               </li>
               <li>
-                <a href="mailto:contact@oasisdesk.ma">contact@oasisdesk.ma</a>
+                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               </li>
-              <li>Agadir, Maroc</li>
+              <li className="ft-list-plain">{SHOWROOM.address}</li>
             </ul>
           </div>
         </div>
+
+        <div className="ft-badges">
+          {badges.map((badge) => (
+            <span className="ft-badge" key={badge}>
+              <span className="ft-badge-tick" aria-hidden="true">
+                ✓
+              </span>
+              {badge}
+            </span>
+          ))}
+        </div>
+
         <div className="ft-huge" aria-hidden="true">
           OASIS
         </div>

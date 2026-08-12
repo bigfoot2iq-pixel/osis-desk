@@ -8,6 +8,7 @@ const nextArgs = process.argv.slice(2);
 const nodeArgs = process.allowedNodeEnvironmentFlags.has("--no-webstorage")
   ? ["--no-webstorage"]
   : [];
+nodeArgs.push("--dns-result-order=ipv4first");
 
 const child = spawn(process.execPath, [...nodeArgs, nextBin, ...nextArgs], {
   cwd: root,

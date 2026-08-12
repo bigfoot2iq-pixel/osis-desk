@@ -17,6 +17,13 @@ type ProductCardProps = {
   onOpen: (product: CatalogProduct) => void;
 };
 
+// Gold for premium tiers, red for anything promotional, plain ink otherwise.
+function badgeVariant(badge: string) {
+  if (badge === "Premium") return " gold";
+  if (/promo|solde|remise|-\s*\d|best/i.test(badge)) return " sale";
+  return "";
+}
+
 function buildImageUrl(image: CatalogImage) {
   return urlFor(image as SanityImageSource)
     .width(PRODUCT_IMAGE_WIDTH)
@@ -50,7 +57,7 @@ export default function ProductCard({ product, onOpen }: ProductCardProps) {
     >
       <div className="prod-fig">
         {product.badge ? (
-          <span className={`prod-badge${product.badge === "Premium" ? " gold" : ""}`}>
+          <span className={`prod-badge${badgeVariant(product.badge)}`}>
             {product.badge}
           </span>
         ) : null}

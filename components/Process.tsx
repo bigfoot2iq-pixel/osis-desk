@@ -5,25 +5,25 @@ const steps = [
     delay: "",
     num: "01",
     title: "Brief",
-    text: "15 minutes. Espaces, budget, échéance.",
+    text: "Nous cernons vos espaces, votre budget et vos délais en 15 minutes.",
   },
   {
     delay: "d1",
     num: "02",
     title: "Devis",
-    text: "Sous 24 h. 3 à 5 références argumentées.",
+    text: "Sous 24 h : 3 à 5 références argumentées et chiffrées.",
   },
   {
     delay: "d2",
     num: "03",
     title: "Showroom",
-    text: "Vous testez à Agadir. On ajuste.",
+    text: "Vous testez les assises à Agadir, nous ajustons la sélection.",
   },
   {
     delay: "d3",
     num: "04",
     title: "Livraison",
-    text: "72 h. Installation et briefing inclus.",
+    text: "Sous 72 h : livraison, installation et prise en main incluses.",
   },
 ];
 
@@ -33,16 +33,16 @@ export default function Process() {
       <div className="wrap">
         <div className="process-head">
           <RevealOnScroll>
-            <span className="eyebrow">Comment on travaille</span>
+            <span className="eyebrow">Notre méthode</span>
             <h2 className="h2">
-              De l&apos;appel au
+              Du premier appel au
               <br />
-              fauteuil <em>en 4 étapes</em>.
+              fauteuil livré, <em>en 4 étapes</em>.
             </h2>
           </RevealOnScroll>
           <RevealOnScroll className="d1">
             <p className="lede">
-              Méthode rodée. Pas de surprise.
+              Un processus éprouvé, transparent à chaque étape.
             </p>
           </RevealOnScroll>
         </div>
