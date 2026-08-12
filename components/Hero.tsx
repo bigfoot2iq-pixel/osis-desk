@@ -1,9 +1,11 @@
 "use client";
 
 import { useMemo } from "react";
+import { preload } from "react-dom";
 
 import {
   ALL_KEY,
+  DEFAULT_HERO_IMAGE,
   HERO,
   SERVICE_PROMISES,
   heroImageUrl,
@@ -33,11 +35,18 @@ export default function Hero() {
     for (const category of categories) {
       map.set(
         category.key,
-        category.collection ? heroImageUrl(category.collection) : null,
+        category.collection
+          ? heroImageUrl(category.collection)
+          : DEFAULT_HERO_IMAGE,
       );
     }
     return map;
   }, [categories]);
+
+  // Warm every category background so switching is instant (no flash).
+  images.forEach((url) => {
+    if (url) preload(url, { as: "image" });
+  });
 
   const activeImage = images.get(activeKey) ?? null;
 

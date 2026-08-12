@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/studio", "/api"],
     },
-    sitemap: "https://oasisdesk.ma/sitemap.xml",
-    host: "https://oasisdesk.ma",
+    sitemap: "https://oasisdeskmaroc.com/sitemap.xml",
+    host: "https://oasisdeskmaroc.com",
   };
 }

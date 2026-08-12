@@ -4,7 +4,7 @@
 export const WHATSAPP_NUMBER = "212624828155";
 export const PHONE = "+212624828155";
 export const PHONE_DISPLAY = "+212 624 828 155";
-export const EMAIL = "contact@oasisdesk.ma";
+export const EMAIL = "contact@oasisdeskmaroc.com";
 
 // Single source of truth for opening hours so the showroom + footer never
 // contradict each other.

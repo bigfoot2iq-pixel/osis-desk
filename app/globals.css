@@ -91,6 +91,24 @@ section[id] {
   border-radius: 4px;
 }
 
+.skip-link {
+  background: var(--ink);
+  border-radius: 0 0 8px 0;
+  color: var(--white);
+  left: 0;
+  padding: 10px 16px;
+  position: fixed;
+  text-decoration: none;
+  top: 0;
+  transform: translateY(-120%);
+  transition: transform 0.2s;
+  z-index: 500;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 .btn:focus-visible,
 .nav-cta:focus-visible,
 .coll-tab:focus-visible,
@@ -426,6 +444,12 @@ nav.lit {
   font-size: 0.85rem;
   padding: 18px 12px;
   text-align: center;
+}
+
+.search-hint {
+  color: var(--mid);
+  font-size: 0.72rem;
+  padding: 6px 10px 2px;
 }
 
 .search-group + .search-group {
@@ -2737,6 +2761,16 @@ footer {
 
   .nav-search {
     max-width: none;
+  }
+
+  /* Break the dropdown out of the narrow field to near full-width. Anchored
+     under the fixed nav, which spans the viewport from (0,0). */
+  .search-panel {
+    left: 8px;
+    margin-top: 0;
+    position: fixed;
+    right: 8px;
+    top: 66px;
   }
 
   .subnav {

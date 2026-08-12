@@ -10,7 +10,7 @@ import {
   type KeyboardEvent,
 } from "react";
 
-import { productThumbUrl, searchCatalog } from "@/lib/catalog";
+import { productThumbUrl, searchCatalog, suggestCatalog } from "@/lib/catalog";
 import type { CatalogCollection, CatalogProduct } from "@/sanity/types";
 
 import { useCatalog } from "./CatalogContext";
@@ -31,9 +31,12 @@ export default function SearchBar() {
   const inputRef = useRef<HTMLInputElement>(null);
   const listId = useId();
 
+  const hasQuery = query.trim().length > 0;
+
   const results = useMemo(
-    () => searchCatalog(collections, query),
-    [collections, query],
+    () =>
+      hasQuery ? searchCatalog(collections, query) : suggestCatalog(collections),
+    [collections, query, hasQuery],
   );
 
   // Flat, ordered list of selectable rows (mirrors render order) plus a lookup
@@ -58,8 +61,7 @@ export default function SearchBar() {
     };
   }, [results]);
 
-  const hasQuery = query.trim().length > 0;
-  const showPanel = open && hasQuery;
+  const showPanel = open;
   const activeIndex = Math.min(active, Math.max(0, options.length - 1));
 
   useEffect(() => {
@@ -72,6 +74,15 @@ export default function SearchBar() {
   }, [showPanel]);
 
   const optionId = (index: number) => `${listId}-opt-${index}`;
+
+  // Keep the keyboard-highlighted row visible in the scrollable panel.
+  useEffect(() => {
+    if (!showPanel) return;
+    document
+      .getElementById(optionId(activeIndex))
+      ?.scrollIntoView({ block: "nearest" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeIndex, showPanel]);
 
   const choose = (option: FlatOption) => {
     if (option.type === "product") {
@@ -150,7 +161,7 @@ export default function SearchBar() {
             setActive(0);
             setOpen(true);
           }}
-          onFocus={() => hasQuery && setOpen(true)}
+          onFocus={() => setOpen(true)}
           onKeyDown={onKeyDown}
         />
         {hasQuery ? (
@@ -172,11 +183,18 @@ export default function SearchBar() {
       {showPanel ? (
         <div className="search-panel" role="listbox" id={listId}>
           {options.length === 0 ? (
-            <div className="search-empty">
-              Aucun résultat pour « {query.trim()} ».
-            </div>
+            hasQuery ? (
+              <div className="search-empty">
+                Aucun résultat pour « {query.trim()} ».
+              </div>
+            ) : null
           ) : (
             <>
+              {!hasQuery ? (
+                <div className="search-hint">
+                  Catégories &amp; produits populaires
+                </div>
+              ) : null}
               {results.groups.map((group) => (
                 <div className="search-group" key={group.collection._id}>
                   <div className="search-group-head">

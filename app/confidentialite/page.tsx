@@ -58,7 +58,7 @@ export default function ConfidentialitePage() {
         Conformément à la loi 09-08, vous disposez d&apos;un droit
         d&apos;accès, de rectification, d&apos;opposition et de suppression
         sur vos données. Vous pouvez les exercer en écrivant à
-        contact@oasisdesk.ma. Vous pouvez également saisir la Commission
+        contact@oasisdeskmaroc.com. Vous pouvez également saisir la Commission
         Nationale de contrôle de la protection des Données à caractère
         Personnel (CNDP) à tout moment.
       </p>
@@ -66,7 +66,7 @@ export default function ConfidentialitePage() {
       <h2>Délégué à la protection des données</h2>
       <p>
         Pour toute question relative au traitement de vos données, contactez
-        notre délégué à : contact@oasisdesk.ma.
+        notre délégué à : contact@oasisdeskmaroc.com.
       </p>
 
       <p>

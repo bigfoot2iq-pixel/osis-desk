@@ -1,12 +1,33 @@
 import type { MetadataRoute } from "next";
 
+const SITE_URL = "https://oasisdeskmaroc.com";
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
   return [
     {
-      url: "https://oasisdesk.ma/",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+      url: `${SITE_URL}/`,
+      lastModified: now,
+      changeFrequency: "weekly",
       priority: 1,
+    },
+    {
+      url: `${SITE_URL}/mentions-legales`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/confidentialite`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/cgv`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
   ];
 }

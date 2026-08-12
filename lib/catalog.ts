@@ -12,6 +12,10 @@ import type {
 export const ALL_KEY = "__all__";
 export const ALL_TITLE = "Tous";
 
+// Full-bleed background for the default "Tous" hero slide (the shot that used
+// to sit in the old hero's right-hand card).
+export const DEFAULT_HERO_IMAGE = "/oasis-desk-site.jpg";
+
 export type Category = {
   key: string;
   title: string;
@@ -152,6 +156,37 @@ export type SearchResult = {
 const MAX_PER_GROUP = 5;
 const MAX_PRODUCTS = 8;
 const MAX_COLLECTIONS = 4;
+
+// Default panel shown when the field is focused but empty: a taste of each
+// category plus the full category list.
+const SUGGEST_PER_GROUP = 2;
+const SUGGEST_PRODUCTS = 6;
+
+export function suggestCatalog(
+  collections: CatalogCollection[],
+): SearchResult {
+  const groups: SearchGroup[] = [];
+  let total = 0;
+
+  for (const collection of collections) {
+    if (total >= SUGGEST_PRODUCTS) break;
+    const room = SUGGEST_PRODUCTS - total;
+    const products = collection.products.slice(
+      0,
+      Math.min(SUGGEST_PER_GROUP, room),
+    );
+    if (products.length) {
+      groups.push({ collection, products });
+      total += products.length;
+    }
+  }
+
+  return {
+    groups,
+    collections: collections.slice(0, MAX_COLLECTIONS),
+    total,
+  };
+}
 
 export function searchCatalog(
   collections: CatalogCollection[],

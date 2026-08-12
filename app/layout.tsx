@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://oasisdesk.ma"),
+  metadataBase: new URL("https://oasisdeskmaroc.com"),
   title:
     "OASIS Desk | Chaises de bureau, fauteuils & bureaux à Agadir — détail & gros",
   description:
@@ -49,9 +49,16 @@ export const metadata: Metadata = {
       "Chaises de bureau, fauteuils et bureaux à Agadir. À l'unité ou en gros, pour particuliers et entreprises. Showroom à Agadir.",
     locale: "fr_MA",
     type: "website",
+    siteName: "OASIS Desk",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OASIS Desk | Chaises, fauteuils & bureaux à Agadir",
+    description:
+      "Chaises de bureau, fauteuils et bureaux à Agadir. À l'unité ou en gros. Showroom à Agadir, livraison au Maroc.",
   },
   alternates: {
-    canonical: "https://oasisdesk.ma",
+    canonical: "https://oasisdeskmaroc.com",
   },
 };
 
@@ -75,6 +82,16 @@ export default function RootLayout({
       className={`${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full">
+        {/* Preload the default hero shot (LCP) so it paints without waiting on CSS. */}
+        <link
+          rel="preload"
+          as="image"
+          href="/oasis-desk-site.jpg"
+          fetchPriority="high"
+        />
+        <a href="#main" className="skip-link">
+          Aller au contenu
+        </a>
         {children}
         <Analytics />
         <SpeedInsights />
