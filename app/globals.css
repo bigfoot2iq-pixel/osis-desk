@@ -570,10 +570,16 @@ nav.lit {
 
 .subnav-list {
   display: flex;
+  flex: 1 1 auto;
   gap: 2px;
   list-style: none;
+  min-width: 0;
   overflow-x: auto;
   scrollbar-width: none;
+}
+
+.subnav-item {
+  flex-shrink: 0;
 }
 
 .subnav-list::-webkit-scrollbar {
