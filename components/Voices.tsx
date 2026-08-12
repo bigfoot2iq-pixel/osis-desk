@@ -55,25 +55,25 @@ export default function Voices() {
           </h2>
         </RevealOnScroll>
 
-        <RevealOnScroll className="voice-feat">
-          <div className="voice-feat-inner">
-            <p className="voice-feat-q">
-              « 18 postes équipés en une semaine. Sélection juste, SAV{" "}
-              <em>impeccable</em>. »
-            </p>
-            <div className="voice-feat-meta">
-              <div className="vfm-stars">★★★★★</div>
-              <div>
-                <div className="vfm-name">Karim Benali</div>
-                <div className="vfm-role">Directeur Général</div>
-              </div>
-              <div className="vfm-co">Groupe Altitude · Agadir</div>
-              <div className="voice-metric">18 postes livrés en 5 jours</div>
-            </div>
-          </div>
-        </RevealOnScroll>
-
         <div className="voice-grid">
+          <RevealOnScroll className="voice-feat">
+            <div className="voice-feat-inner">
+              <p className="voice-feat-q">
+                « 18 postes équipés en une semaine. Sélection juste, SAV{" "}
+                <em>impeccable</em>. »
+              </p>
+              <div className="voice-feat-meta">
+                <div className="vfm-stars">★★★★★</div>
+                <div>
+                  <div className="vfm-name">Karim Benali</div>
+                  <div className="vfm-role">Directeur Général</div>
+                </div>
+                <div className="vfm-co">Groupe Altitude · Agadir</div>
+                <div className="voice-metric">18 postes livrés en 5 jours</div>
+              </div>
+            </div>
+          </RevealOnScroll>
+
           {voices.map((voice) => (
             <RevealOnScroll
               key={voice.name}

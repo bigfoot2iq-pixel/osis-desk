@@ -60,6 +60,7 @@
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
@@ -575,7 +576,8 @@ nav.lit {
   list-style: none;
   min-width: 0;
   overflow-x: auto;
-  scrollbar-width: none;
+  scrollbar-color: var(--rule) transparent;
+  scrollbar-width: thin;
 }
 
 .subnav-item {
@@ -583,7 +585,16 @@ nav.lit {
 }
 
 .subnav-list::-webkit-scrollbar {
-  display: none;
+  height: 4px;
+}
+
+.subnav-list::-webkit-scrollbar-thumb {
+  background: var(--rule);
+  border-radius: 999px;
+}
+
+.subnav-list::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .subnav-item {
@@ -2040,7 +2051,7 @@ nav.lit {
   background: var(--white);
   border: 1px solid var(--rule);
   border-radius: 24px;
-  margin-bottom: 12px;
+  grid-column: 1 / -1;
   overflow: hidden;
   padding: clamp(32px, 4vw, 52px);
   position: relative;
@@ -2959,15 +2970,31 @@ footer {
   }
 
   .bento {
+    display: flex;
     gap: 12px;
-    grid-auto-rows: auto;
-    grid-template-columns: 1fr;
+    grid-template-columns: none;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: var(--rule) transparent;
+    scrollbar-width: thin;
+  }
+
+  .bento::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .bento::-webkit-scrollbar-thumb {
+    background: var(--rule);
+    border-radius: 999px;
   }
 
   .bento-card,
   .bento-card.span2 {
-    grid-column: span 1;
+    flex: 0 0 auto;
     padding: 22px 20px;
+    scroll-snap-align: start;
+    width: min(80vw, 290px);
   }
 
   .bc-glyph {
@@ -3008,17 +3035,32 @@ footer {
   }
 
   .steps {
-    grid-template-columns: 1fr;
+    display: flex;
+    gap: 12px;
+    grid-template-columns: none;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+    scrollbar-width: thin;
+  }
+
+  .steps::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .steps::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
   }
 
   .step {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    border-right: none;
-    padding: 24px 0 !important;
-  }
-
-  .step:last-child {
-    border-bottom: none;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 14px;
+    flex: 0 0 auto;
+    padding: 22px 20px !important;
+    scroll-snap-align: start;
+    width: min(68vw, 230px);
   }
 
   .step-title {
@@ -3053,12 +3095,43 @@ footer {
   }
 
   .voice-grid {
+    display: flex;
     gap: 12px;
-    grid-template-columns: 1fr;
+    grid-template-columns: none;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: var(--rule) transparent;
+    scrollbar-width: thin;
+  }
+
+  .voice-grid::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .voice-grid::-webkit-scrollbar-thumb {
+    background: var(--rule);
+    border-radius: 999px;
+  }
+
+  .voice,
+  .voice-feat {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
   }
 
   .voice {
     padding: 22px 20px;
+    width: min(82vw, 310px);
+  }
+
+  .voice-feat {
+    padding: 24px 20px;
+    width: min(86vw, 340px);
+  }
+
+  .voice-feat-inner {
+    gap: 1.25rem;
   }
 
   .voice-q {
@@ -3201,6 +3274,9 @@ footer {
   inset: 0;
   z-index: 1000;
   pointer-events: none;
+  /* Clip the off-canvas drawer (translateX(102%)) so it never adds a
+     horizontal page scrollbar while closed. */
+  overflow: hidden;
 }
 
 .pdp-backdrop {
