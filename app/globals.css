@@ -555,6 +555,10 @@ nav.lit {
 
 /* ---- Submenu (category bar under the header) ---- */
 .subnav {
+  /* Override the global `nav { display: flex }` — as a flex container it let
+     .subnav-inner grow to content width and overflow the page instead of
+     giving the list a real scroll range. Block keeps it viewport-wide. */
+  display: block;
   background: rgba(246, 244, 238, 0.9);
   backdrop-filter: blur(12px) saturate(140%);
   -webkit-backdrop-filter: blur(12px) saturate(140%);
@@ -584,11 +588,9 @@ nav.lit {
   min-width: 0;
   overflow-x: auto;
   overscroll-behavior-x: contain;
-  scrollbar-color: var(--rule) transparent;
-  scrollbar-width: thin;
+  /* Clean look: no visible scrollbar. Native touch-swipe + desktop drag. */
+  scrollbar-width: none;
   cursor: grab;
-  /* JS drag-to-scroll owns panning (native touch scroll was unreliable here). */
-  touch-action: none;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -607,16 +609,7 @@ nav.lit {
 }
 
 .subnav-list::-webkit-scrollbar {
-  height: 4px;
-}
-
-.subnav-list::-webkit-scrollbar-thumb {
-  background: var(--rule);
-  border-radius: 999px;
-}
-
-.subnav-list::-webkit-scrollbar-track {
-  background: transparent;
+  display: none;
 }
 
 .subnav-item {

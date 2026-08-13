@@ -12,8 +12,6 @@ export default function Carousel({ children }: CarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
-  // Click-drag to scroll for mouse/pen. Touch keeps native momentum scroll.
-  const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: false });
 
   const sync = useCallback(() => {
     const el = trackRef.current;
@@ -35,45 +33,42 @@ export default function Carousel({ children }: CarouselProps) {
     };
   }, [sync, children]);
 
+  // Click-drag to scroll for mouse/pen; touch keeps native momentum scroll.
+  // Uses window listeners (no setPointerCapture — capture retargets the click
+  // and stops product cards from opening).
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (e.pointerType === "touch") return; // let mobile use native scroll
+    if (e.pointerType === "touch") return;
     const el = trackRef.current;
     if (!el) return;
-    drag.current = {
-      active: true,
-      startX: e.clientX,
-      startScroll: el.scrollLeft,
-      moved: false,
-    };
+    const startX = e.clientX;
+    const startScroll = el.scrollLeft;
+    let moved = false;
     el.classList.add("dragging");
-    el.setPointerCapture(e.pointerId);
-  };
 
-  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    const el = trackRef.current;
-    const d = drag.current;
-    if (!el || !d.active) return;
-    e.preventDefault();
-    const dx = e.clientX - d.startX;
-    if (Math.abs(dx) > 4) d.moved = true;
-    el.scrollLeft = d.startScroll - dx;
-  };
-
-  const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
-    const el = trackRef.current;
-    if (!drag.current.active) return;
-    drag.current.active = false;
-    el?.classList.remove("dragging");
-    if (el?.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
-  };
-
-  // Swallow the click that fires after a drag so a card doesn't open.
-  const onClickCapture = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (drag.current.moved) {
-      e.stopPropagation();
-      e.preventDefault();
-      drag.current.moved = false;
-    }
+    const onMove = (ev: PointerEvent) => {
+      const dx = ev.clientX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      el.scrollLeft = startScroll - dx;
+    };
+    const onUp = () => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      el.classList.remove("dragging");
+      if (moved) {
+        // Cancel the click that ends the drag so a card doesn't open.
+        const swallow = (ce: MouseEvent) => {
+          ce.stopPropagation();
+          ce.preventDefault();
+        };
+        el.addEventListener("click", swallow, { capture: true, once: true });
+        setTimeout(
+          () => el.removeEventListener("click", swallow, { capture: true }),
+          0,
+        );
+      }
+    };
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
   };
 
   const step = (dir: 1 | -1) => {
@@ -97,15 +92,7 @@ export default function Carousel({ children }: CarouselProps) {
       >
         <span aria-hidden="true">‹</span>
       </button>
-      <div
-        className="prod-track"
-        ref={trackRef}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={endDrag}
-        onPointerCancel={endDrag}
-        onClickCapture={onClickCapture}
-      >
+      <div className="prod-track" ref={trackRef} onPointerDown={onPointerDown}>
         {children}
       </div>
       <button

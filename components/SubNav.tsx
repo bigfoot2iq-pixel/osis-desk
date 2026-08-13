@@ -20,38 +20,40 @@ export default function SubNav() {
   const { categories, activeKey, setActiveKey } = useCatalog();
 
   const listRef = useRef<HTMLUListElement>(null);
-  // Drag-to-scroll (mouse + touch). Native touch scroll was unreliable here,
-  // so JS owns panning; `touch-action: none` in CSS hands us every gesture.
-  const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: false });
-
+  // Desktop mouse/pen drag-to-scroll. Mobile uses native swipe. Window
+  // listeners (no setPointerCapture, which would retarget the tab click).
   const onPointerDown = (e: React.PointerEvent<HTMLUListElement>) => {
+    if (e.pointerType === "touch") return;
     const el = listRef.current;
     if (!el) return;
-    drag.current = {
-      active: true,
-      startX: e.clientX,
-      startScroll: el.scrollLeft,
-      moved: false,
-    };
-    el.setPointerCapture(e.pointerId);
+    const startX = e.clientX;
+    const startScroll = el.scrollLeft;
+    let moved = false;
     el.classList.add("dragging");
-  };
 
-  const onPointerMove = (e: React.PointerEvent<HTMLUListElement>) => {
-    const el = listRef.current;
-    const d = drag.current;
-    if (!el || !d.active) return;
-    const dx = e.clientX - d.startX;
-    if (Math.abs(dx) > 4) d.moved = true;
-    el.scrollLeft = d.startScroll - dx;
-  };
-
-  const endDrag = (e: React.PointerEvent<HTMLUListElement>) => {
-    const el = listRef.current;
-    if (!drag.current.active) return;
-    drag.current.active = false;
-    el?.classList.remove("dragging");
-    if (el?.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
+    const onMove = (ev: PointerEvent) => {
+      const dx = ev.clientX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      el.scrollLeft = startScroll - dx;
+    };
+    const onUp = () => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      el.classList.remove("dragging");
+      if (moved) {
+        const swallow = (ce: MouseEvent) => {
+          ce.stopPropagation();
+          ce.preventDefault();
+        };
+        el.addEventListener("click", swallow, { capture: true, once: true });
+        setTimeout(
+          () => el.removeEventListener("click", swallow, { capture: true }),
+          0,
+        );
+      }
+    };
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
   };
 
   // Hide the "Tous" catch-all — real collections only.
@@ -67,9 +69,6 @@ export default function SubNav() {
           role="tablist"
           ref={listRef}
           onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={endDrag}
-          onPointerCancel={endDrag}
         >
           {items.map((category) => {
             const thumb = categoryThumb(category);
@@ -80,14 +79,7 @@ export default function SubNav() {
                   role="tab"
                   aria-selected={category.key === activeKey}
                   className={`subnav-item${category.key === activeKey ? " on" : ""}`}
-                  onClick={() => {
-                    // Swallow the click that ends a drag so it doesn't switch tab.
-                    if (drag.current.moved) {
-                      drag.current.moved = false;
-                      return;
-                    }
-                    setActiveKey(category.key);
-                  }}
+                  onClick={() => setActiveKey(category.key)}
                 >
                   {thumb ? (
                     // eslint-disable-next-line @next/next/no-img-element
