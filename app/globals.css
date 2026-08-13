@@ -578,12 +578,20 @@ nav.lit {
 .subnav-list {
   display: flex;
   flex: 1 1 auto;
+  flex-wrap: nowrap;
   gap: 2px;
   list-style: none;
   min-width: 0;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   scrollbar-color: var(--rule) transparent;
   scrollbar-width: thin;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
+}
+
+.subnav-list > li {
+  flex: 0 0 auto;
 }
 
 .subnav-item {
@@ -2903,12 +2911,14 @@ footer {
 
   .hero-actions {
     width: 100%;
+    gap: 0.6rem;
   }
 
   .hero-actions .btn {
     flex: 1;
+    font-size: 0.82rem;
     justify-content: center;
-    padding: 13px 18px;
+    padding: 10px 14px;
   }
 
   .hero-promises {
