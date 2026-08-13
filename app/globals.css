@@ -1754,7 +1754,7 @@ nav.lit {
 }
 
 .prod-row {
-  align-items: baseline;
+  align-items: flex-start;
   display: flex;
   gap: 12px;
   justify-content: space-between;
@@ -1767,13 +1767,21 @@ nav.lit {
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.25;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  min-height: calc(1rem * 1.25 * 2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: help;
 }
 
 .prod-price {
-  color: var(--ink);
+  color: var(--red);
   font-family: var(--sans);
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   white-space: nowrap;
 }
 
@@ -2838,7 +2846,11 @@ footer {
 
   .hero-sub {
     font-size: 0.95rem;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.1rem;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    overflow: hidden;
   }
 
   .hero-actions {
@@ -2851,9 +2863,15 @@ footer {
     padding: 13px 18px;
   }
 
+  .hero-promises {
+    display: none;
+  }
+
   .hero-meta {
     flex-wrap: wrap;
     gap: 0.75rem;
+    margin-top: 1.1rem;
+    padding-top: 0.85rem;
   }
 
   .hero-card-stage {
@@ -2954,10 +2972,11 @@ footer {
 
   .prod-name {
     font-size: 0.95rem;
+    min-height: calc(0.95rem * 1.25 * 2);
   }
 
   .prod-price {
-    font-size: 0.82rem;
+    font-size: 0.92rem;
   }
 
   .prod-sub,

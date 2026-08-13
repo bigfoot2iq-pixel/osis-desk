@@ -104,7 +104,9 @@ export default function ProductCard({ product, onOpen }: ProductCardProps) {
       </div>
       <div className="prod-info">
         <div className="prod-row">
-          <div className="prod-name">{product.name}</div>
+          <div className="prod-name" title={product.name}>
+            {product.name}
+          </div>
           {product.price ? <div className="prod-price">{product.price}</div> : null}
         </div>
         {product.sub ? <div className="prod-sub">{product.sub}</div> : null}
