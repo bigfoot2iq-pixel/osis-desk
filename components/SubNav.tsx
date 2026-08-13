@@ -44,7 +44,6 @@ export default function SubNav() {
                     <span className="subnav-thumb subnav-thumb-empty" aria-hidden="true" />
                   )}
                   <span className="subnav-label">{category.title}</span>
-                  <span className="subnav-count">{category.count}</span>
                 </button>
               </li>
             );

@@ -2969,6 +2969,7 @@ footer {
   }
 
   .coll-tabs {
+    flex-wrap: nowrap;
     gap: 6px;
     overflow-x: auto;
     padding-bottom: 4px;

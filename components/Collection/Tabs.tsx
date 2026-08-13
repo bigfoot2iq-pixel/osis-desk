@@ -23,9 +23,6 @@ export default function Tabs({ tabs, activeKey, onChange }: TabsProps) {
           type="button"
         >
           {tab.title}
-          {typeof tab.count === "number" ? (
-            <span className="coll-tab-count">{tab.count}</span>
-          ) : null}
         </button>
       ))}
     </div>
