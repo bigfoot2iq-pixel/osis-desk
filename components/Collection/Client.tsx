@@ -1,6 +1,7 @@
 "use client";
 
 import { useCatalog } from "@/components/CatalogContext";
+import { ALL_KEY } from "@/lib/catalog";
 
 import Carousel from "./Carousel";
 import ProductCard from "./ProductCard";
@@ -19,11 +20,13 @@ export default function CollectionClient() {
 
   if (!collections.length) return null;
 
-  const tabs: TabItem[] = categories.map((category) => ({
-    key: category.key,
-    title: category.title,
-    count: category.count,
-  }));
+  const tabs: TabItem[] = categories
+    .filter((category) => category.key !== ALL_KEY)
+    .map((category) => ({
+      key: category.key,
+      title: category.title,
+      count: category.count,
+    }));
 
   return (
     <div className="coll">

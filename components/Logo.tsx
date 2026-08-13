@@ -11,11 +11,12 @@ export default function Logo({ className }: LogoProps) {
   return (
     <span className={`logo-lockup${className ? ` ${className}` : ""}`}>
       <Image
+        className="logo-img"
         src="/icon.png"
         alt="osis logo"
-        width={50}
-        height={50}
-        style={{ width: "50px", height: "50px" }}
+        width={72}
+        height={72}
+        priority
       />
     </span>
   );

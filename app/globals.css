@@ -45,7 +45,7 @@
   --white: #ffffff;
   --pad: clamp(20px, 5vw, 80px);
   --col: 1440px;
-  --nav-h: 64px;
+  --nav-h: 72px;
   --serif: var(--font-instrument-serif), Georgia, serif;
   --sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --mono: var(--font-jetbrains-mono), ui-monospace, monospace;
@@ -165,7 +165,7 @@ nav {
   background: rgba(246, 244, 238, 0);
   border-bottom: 1px solid transparent;
   display: flex;
-  height: 64px;
+  height: 72px;
   inset: 0 0 auto;
   justify-content: space-between;
   padding: 0 var(--pad);
@@ -181,7 +181,7 @@ nav.lit {
   background: rgba(246, 244, 238, 0.85);
   backdrop-filter: blur(16px) saturate(140%);
   border-color: var(--rule);
-  height: 58px;
+  height: 64px;
   -webkit-backdrop-filter: blur(16px) saturate(140%);
 }
 
@@ -200,6 +200,12 @@ nav.lit {
   gap: 9px;
   color: inherit;
   line-height: 1;
+}
+
+.logo-img {
+  display: block;
+  width: 60px;
+  height: 60px;
 }
 
 .logo-glyph {
@@ -555,7 +561,7 @@ nav.lit {
   border-bottom: 1px solid var(--rule);
   margin-top: var(--nav-h);
   position: sticky;
-  top: 58px;
+  top: 64px;
   z-index: 250;
 }
 
@@ -607,13 +613,33 @@ nav.lit {
   display: inline-flex;
   font-family: var(--sans);
   font-size: 0.8rem;
-  font-weight: 500;
-  gap: 6px;
-  padding: 12px 10px;
+  font-weight: 600;
+  gap: 8px;
+  letter-spacing: 0.04em;
+  padding: 10px 10px;
+  text-transform: uppercase;
   transition:
     color 0.2s,
     border-color 0.2s;
   white-space: nowrap;
+}
+
+.subnav-thumb {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid var(--rule);
+  background: var(--bg-2);
+  flex: 0 0 auto;
+}
+
+.subnav-item:hover .subnav-thumb {
+  border-color: var(--mid);
+}
+
+.subnav-item.on .subnav-thumb {
+  border-color: var(--red);
 }
 
 .subnav-item:hover {
@@ -643,8 +669,10 @@ nav.lit {
   color: var(--ink-2);
   flex: 0 0 auto;
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-decoration: none;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
@@ -2790,17 +2818,27 @@ footer {
 
   /* Break the dropdown out of the narrow field to near full-width. Anchored
      under the fixed nav, which spans the viewport from (0,0). */
+  .logo-img {
+    width: 52px;
+    height: 52px;
+  }
+
   .search-panel {
     left: 8px;
     margin-top: 0;
     position: fixed;
     right: 8px;
-    top: 66px;
+    top: 74px;
   }
 
   .subnav {
-    margin-top: 60px;
-    top: 56px;
+    margin-top: 72px;
+    top: 64px;
+  }
+
+  .subnav-thumb {
+    width: 28px;
+    height: 28px;
   }
 
   .subnav-inner {
@@ -2817,7 +2855,7 @@ footer {
   }
 
   .mobile-menu {
-    inset: 60px 0 0 0;
+    inset: 72px 0 0 0;
     padding: 24px 16px 40px;
   }
 

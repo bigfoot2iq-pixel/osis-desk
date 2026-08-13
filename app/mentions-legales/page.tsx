@@ -25,7 +25,7 @@ export default function MentionsLegalesPage() {
         <li>IF : [IF]</li>
         <li>Patente : [Patente]</li>
         <li>Téléphone : +212 624 828 155</li>
-        <li>E-mail : contact@oasisdeskmaroc.com</li>
+        <li>E-mail : Oasis.desk25@gmail.com</li>
       </ul>
 
       <h2>Directeur de la publication</h2>
@@ -52,7 +52,7 @@ export default function MentionsLegalesPage() {
       <h2>Contact</h2>
       <p>
         Pour toute question relative aux présentes mentions légales, vous
-        pouvez nous écrire à contact@oasisdeskmaroc.com.
+        pouvez nous écrire à Oasis.desk25@gmail.com.
       </p>
 
       <p>
