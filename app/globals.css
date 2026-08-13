@@ -1501,11 +1501,21 @@ nav.lit {
   display: flex;
   gap: 16px;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   padding: 6px calc(var(--pad) * 0.5) 12px;
   scroll-behavior: smooth;
   scroll-padding-left: calc(var(--pad) * 0.5);
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
   scrollbar-width: none;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+}
+
+.prod-track.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+  user-select: none;
 }
 
 .prod-track::-webkit-scrollbar {
