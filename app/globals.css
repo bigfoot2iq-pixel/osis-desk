@@ -586,8 +586,16 @@ nav.lit {
   overscroll-behavior-x: contain;
   scrollbar-color: var(--rule) transparent;
   scrollbar-width: thin;
-  touch-action: pan-x;
+  cursor: grab;
+  /* JS drag-to-scroll owns panning (native touch scroll was unreliable here). */
+  touch-action: none;
   -webkit-overflow-scrolling: touch;
+}
+
+.subnav-list.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  user-select: none;
 }
 
 .subnav-list > li {
@@ -2846,12 +2854,12 @@ footer {
     margin-top: 0;
     position: fixed;
     right: 8px;
-    top: 74px;
+    top: 66px;
   }
 
   .subnav {
-    margin-top: 72px;
-    top: 64px;
+    margin-top: 60px;
+    top: 56px;
   }
 
   .subnav-thumb {
@@ -2860,6 +2868,7 @@ footer {
   }
 
   .subnav-inner {
+    display: block;
     gap: 0.5rem;
     padding: 0 16px;
   }
@@ -2873,7 +2882,7 @@ footer {
   }
 
   .mobile-menu {
-    inset: 72px 0 0 0;
+    inset: 60px 0 0 0;
     padding: 24px 16px 40px;
   }
 
