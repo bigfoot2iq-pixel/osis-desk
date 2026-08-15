@@ -14,8 +14,8 @@ export default function Logo({ className }: LogoProps) {
         className="logo-img"
         src="/icon.png"
         alt="osis logo"
-        width={72}
-        height={72}
+        width={96}
+        height={96}
         priority
       />
     </span>

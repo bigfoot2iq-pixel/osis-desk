@@ -45,7 +45,7 @@
   --white: #ffffff;
   --pad: clamp(20px, 5vw, 80px);
   --col: 1440px;
-  --nav-h: 72px;
+  --nav-h: 84px;
   --serif: var(--font-instrument-serif), Georgia, serif;
   --sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --mono: var(--font-jetbrains-mono), ui-monospace, monospace;
@@ -165,7 +165,7 @@ nav {
   background: rgba(246, 244, 238, 0);
   border-bottom: 1px solid transparent;
   display: flex;
-  height: 72px;
+  height: 84px;
   inset: 0 0 auto;
   justify-content: space-between;
   padding: 0 var(--pad);
@@ -181,7 +181,7 @@ nav.lit {
   background: rgba(246, 244, 238, 0.85);
   backdrop-filter: blur(16px) saturate(140%);
   border-color: var(--rule);
-  height: 64px;
+  height: 74px;
   -webkit-backdrop-filter: blur(16px) saturate(140%);
 }
 
@@ -204,8 +204,8 @@ nav.lit {
 
 .logo-img {
   display: block;
-  width: 60px;
-  height: 60px;
+  width: 78px;
+  height: 78px;
 }
 
 .logo-glyph {
@@ -565,7 +565,7 @@ nav.lit {
   border-bottom: 1px solid var(--rule);
   margin-top: var(--nav-h);
   position: sticky;
-  top: 64px;
+  top: 74px;
   z-index: 250;
 }
 
@@ -2682,7 +2682,7 @@ footer {
   display: none;
   flex-direction: column;
   gap: 2rem;
-  inset: 64px 0 0 0;
+  inset: 74px 0 0 0;
   opacity: 0;
   padding: 32px var(--pad) 48px;
   pointer-events: none;
@@ -2834,12 +2834,12 @@ footer {
 
 @media (max-width: 700px) {
   nav {
-    height: 60px;
+    height: 68px;
     padding: 0 16px;
   }
 
   nav.lit {
-    height: 56px;
+    height: 62px;
   }
 
   .nav-search {
@@ -2849,8 +2849,8 @@ footer {
   /* Break the dropdown out of the narrow field to near full-width. Anchored
      under the fixed nav, which spans the viewport from (0,0). */
   .logo-img {
-    width: 52px;
-    height: 52px;
+    width: 64px;
+    height: 64px;
   }
 
   .search-panel {
@@ -2858,12 +2858,12 @@ footer {
     margin-top: 0;
     position: fixed;
     right: 8px;
-    top: 66px;
+    top: 74px;
   }
 
   .subnav {
-    margin-top: 60px;
-    top: 56px;
+    margin-top: 68px;
+    top: 62px;
   }
 
   .subnav-thumb {
