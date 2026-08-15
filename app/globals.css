@@ -2506,6 +2506,35 @@ footer {
   line-height: 1.5;
 }
 
+.ft-social {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.ft-social a {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.7);
+  display: inline-flex;
+  height: 38px;
+  justify-content: center;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  width: 38px;
+}
+
+.ft-social a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: var(--white);
+}
+
+.ft-social svg {
+  height: 18px;
+  width: 18px;
+}
+
 .ft-badges {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;

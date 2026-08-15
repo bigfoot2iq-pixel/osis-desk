@@ -17,7 +17,8 @@ export default function MentionsLegalesPage() {
       <h2>Éditeur du site</h2>
       <p>
         Le site osisdesk.ma est édité par [Raison sociale], société de droit
-        marocain, dont le siège social est situé à [Adresse], Agadir, Maroc.
+        marocain, dont le siège social est situé à Rue Al Khawarezmi, Quartier
+        El Massira, Agadir, Maroc.
       </p>
       <ul>
         <li>ICE : [ICE]</li>

@@ -18,7 +18,7 @@ import {
   buildOfferedProducts,
   SEO_DESCRIPTION,
 } from "@/lib/catalog";
-import { EMAIL, PHONE, SHOWROOM } from "@/lib/contact";
+import { EMAIL, PHONE, SHOWROOM, SOCIALS } from "@/lib/contact";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import type { CatalogCollection } from "@/sanity/types";
 import { getCatalog } from "@/sanity/data";
@@ -64,8 +64,7 @@ function buildJsonLd(collections: CatalogCollection[]) {
     paymentAccepted: "Espèces, Paiement à la livraison, Virement bancaire",
     address: {
       "@type": "PostalAddress",
-      // TODO: confirm exact street address before launch (must match Google Business Profile).
-      streetAddress: "Av. Hassan II, Talborjt",
+      streetAddress: "Rue Al Khawarezmi, Quartier El Massira",
       postalCode: "80000",
       addressLocality: "Agadir",
       addressRegion: "Souss-Massa",
@@ -97,8 +96,7 @@ function buildJsonLd(collections: CatalogCollection[]) {
         closes: "19:00",
       },
     ],
-    // TODO: add real profiles (Google Business, Facebook, Instagram) for entity trust.
-    sameAs: [] as string[],
+    sameAs: [SOCIALS.instagram, SOCIALS.facebook, SOCIALS.tiktok],
     makesOffer: buildOfferedProducts(collections).map((name) => ({
       "@type": "Offer",
       itemOffered: { "@type": "Product", name },
