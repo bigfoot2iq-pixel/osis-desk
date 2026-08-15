@@ -36,7 +36,7 @@ export const HERO = {
   eyebrow: "Mobilier de bureau · Agadir & tout le Maroc",
   titleLead: "Asseyez votre",
   titleEm: "autorité.",
-  sub: "Chaises, fauteuils de direction et bureaux pour entreprises et particuliers. À l'unité ou en gros — fabrication robuste, garantie 5 ans, livraison et montage inclus partout au Maroc.",
+  sub: "Chaises opérateur et visiteur, fauteuils de direction, bureaux, armoires métalliques et accessoires — pour entreprises et particuliers. À l'unité ou en gros, garantie 5 ans, livraison et montage inclus partout au Maroc.",
   allTitle: "Toute la collection",
 } as const;
 
@@ -50,16 +50,93 @@ export const SERVICE_PROMISES = [
 ] as const;
 
 export const SEO_DESCRIPTION =
-  "OASIS Desk — spécialiste du mobilier de bureau à Agadir : chaises de bureau, fauteuils de direction ergonomiques, bureaux et sièges de collectivité. Vente à l'unité et en gros, devis gratuit, livraison, montage et garantie 5 ans partout au Maroc.";
+  "OASIS Desk — mobilier de bureau à Agadir et partout au Maroc : chaises opérateur et visiteur, fauteuils de direction ergonomiques en mesh, armoires et classeurs métalliques, tabourets, packs bureau et accessoires (vérins à gaz, roulettes, accoudoirs). Vente à l'unité et en gros, devis gratuit, livraison, montage et garantie 5 ans.";
 
+// Curated, high-intent French search terms for the Moroccan office-furniture
+// market, aligned with what the catalog actually sells. The live categories are
+// merged on top of these at render time — see `buildKeywords`.
 export const SEO_KEYWORDS = [
   "mobilier de bureau Maroc",
-  "chaise de bureau Agadir",
+  "mobilier de bureau Agadir",
+  "chaise de bureau Maroc",
+  "chaise opérateur mesh",
+  "chaise visiteur bureau",
   "fauteuil de direction",
+  "fauteuil président bureau",
+  "chaise de bureau ergonomique",
+  "chaise de bureau en maille",
   "bureau de direction",
-  "siège ergonomique",
-  "mobilier professionnel Agadir",
+  "bureau opérationnel Maroc",
+  "bureau professionnel Agadir",
+  "table de réunion bureau",
+  "armoire métallique bureau",
+  "classeur métallique",
+  "tabouret de bar réglable",
+  "pack chaises bureau",
+  "accessoires chaise de bureau",
+  "vérin à gaz chaise",
+  "roulettes fauteuil de bureau",
+  "vente mobilier de bureau gros et détail",
 ] as const;
+
+// Words with no standalone search value — dropped when we turn a raw category
+// title into a keyword phrase.
+const KEYWORD_STOP_WORDS = new Set([
+  "de",
+  "des",
+  "du",
+  "la",
+  "le",
+  "les",
+  "et",
+  "en",
+  "pour",
+  "avec",
+  "à",
+  "au",
+  "aux",
+]);
+
+/**
+ * Merge the curated keyword list with the live catalog's category titles so new
+ * collections widen the keyword footprint automatically, without hand-editing.
+ * Result is de-duplicated (diacritic-insensitive) and localised to Morocco.
+ */
+export function buildKeywords(collections: CatalogCollection[]): string[] {
+  const derived = collections
+    .map((c) => c.title.trim())
+    .filter((t) => t && normalize(t) !== "autres")
+    .flatMap((title) => {
+      const clean = title.replace(/\s+/g, " ").trim();
+      const words = clean
+        .split(" ")
+        .filter((w) => !KEYWORD_STOP_WORDS.has(normalize(w)));
+      const phrase = words.join(" ");
+      return phrase ? [`${phrase} Maroc`] : [];
+    });
+
+  const seen = new Set<string>();
+  return [...SEO_KEYWORDS, ...derived].filter((keyword) => {
+    const id = normalize(keyword);
+    if (seen.has(id)) return false;
+    seen.add(id);
+    return true;
+  });
+}
+
+/**
+ * Product types actually stocked, derived from the catalog, for schema.org
+ * `makesOffer`. Falls back to the curated category names when the catalog is
+ * empty (e.g. the fallback build).
+ */
+export function buildOfferedProducts(collections: CatalogCollection[]): string[] {
+  const titles = collections
+    .map((c) => c.title.trim())
+    .filter((t) => t && normalize(t) !== "autres");
+  return titles.length
+    ? Array.from(new Set(titles))
+    : ["Chaises de bureau", "Fauteuils de direction", "Mobilier métallique"];
+}
 
 // ---------------------------------------------------------------------------
 // Images

@@ -4,8 +4,9 @@ import Logo from "./Logo";
 
 const catalogue = [
   { href: "#collection", label: "Fauteuils de direction" },
-  { href: "#collection", label: "Sièges opérateur & mesh" },
-  { href: "#collection", label: "Accueil & réception" },
+  { href: "#collection", label: "Chaises opérateur & visiteur" },
+  { href: "#collection", label: "Bureaux & mobilier métallique" },
+  { href: "#collection", label: "Accessoires & pièces détachées" },
   { href: "#collection", label: "Tout le catalogue" },
 ];
 
@@ -32,8 +33,11 @@ export default function Footer() {
               <Logo />
             </div>
             <p className="ft-tag">
-              Chaises de bureau, fauteuils de direction et bureaux à Agadir.
-              Vente à l&apos;unité et en gros, partout au Maroc.
+              Mobilier de bureau à Agadir : chaises opérateur et visiteur,
+              fauteuils de direction ergonomiques, bureaux, armoires et
+              classeurs métalliques, tabourets et accessoires. Vente à
+              l&apos;unité et en gros. Livraison partout au Maroc — Agadir,
+              Casablanca, Rabat, Marrakech, Tanger, Fès.
             </p>
             <div className="ft-mini">
               <span className="ft-mini-pulse" />

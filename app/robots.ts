@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+import { SITE_URL } from "@/lib/site";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
@@ -7,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/studio", "/api"],
     },
-    sitemap: "https://oasisdeskmaroc.com/sitemap.xml",
-    host: "https://oasisdeskmaroc.com",
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

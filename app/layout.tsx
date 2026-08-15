@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SEO_DESCRIPTION, SEO_KEYWORDS } from "@/lib/catalog";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -24,41 +26,29 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://oasisdeskmaroc.com"),
+  metadataBase: new URL(SITE_URL),
   title:
-    "OASIS Desk | Chaises de bureau, fauteuils & bureaux à Agadir — détail & gros",
-  description:
-    "Vente de chaises de bureau, fauteuils ergonomiques et bureaux à Agadir. À l'unité pour particuliers ou en gros pour entreprises. Showroom à Agadir, livraison au Maroc, garantie 5 ans.",
-  keywords: [
-    "chaise de bureau Agadir",
-    "fauteuil de bureau Maroc",
-    "bureau Agadir",
-    "mobilier de bureau Agadir",
-    "chaise ergonomique Maroc",
-    "fauteuil président",
-    "vente en gros mobilier bureau",
-    "chaise bureau pas cher Maroc",
-    "bureau pour entreprise",
-    "chaise de bureau particulier",
-    "OASIS Desk",
-  ],
+    "OASIS Desk | Chaises, fauteuils de direction & mobilier de bureau à Agadir — détail & gros",
+  description: SEO_DESCRIPTION,
+  keywords: [...SEO_KEYWORDS, SITE_NAME],
   openGraph: {
     title:
-      "OASIS Desk | Chaises, fauteuils & bureaux à Agadir — détail & gros",
+      "OASIS Desk | Chaises, fauteuils de direction & mobilier de bureau au Maroc",
     description:
-      "Chaises de bureau, fauteuils et bureaux à Agadir. À l'unité ou en gros, pour particuliers et entreprises. Showroom à Agadir.",
+      "Chaises opérateur & visiteur, fauteuils de direction, armoires métalliques et accessoires. À l'unité ou en gros. Showroom à Agadir, livraison partout au Maroc.",
+    url: SITE_URL,
     locale: "fr_MA",
     type: "website",
-    siteName: "OASIS Desk",
+    siteName: SITE_NAME,
   },
   twitter: {
     card: "summary_large_image",
-    title: "OASIS Desk | Chaises, fauteuils & bureaux à Agadir",
+    title: "OASIS Desk | Mobilier de bureau à Agadir & partout au Maroc",
     description:
-      "Chaises de bureau, fauteuils et bureaux à Agadir. À l'unité ou en gros. Showroom à Agadir, livraison au Maroc.",
+      "Chaises, fauteuils de direction, mobilier métallique et accessoires. À l'unité ou en gros. Livraison partout au Maroc.",
   },
   alternates: {
-    canonical: "https://oasisdeskmaroc.com",
+    canonical: SITE_URL,
   },
 };
 
