@@ -61,13 +61,6 @@ export default function ProductCard({ product, onOpen }: ProductCardProps) {
             {product.badge}
           </span>
         ) : null}
-        <button
-          className="prod-fav"
-          aria-label={`Favori ${product.name}`}
-          onClick={(event) => event.stopPropagation()}
-        >
-          ♡
-        </button>
         {current ? (
           <Image
             className="prod-img"
@@ -83,6 +76,32 @@ export default function ProductCard({ product, onOpen }: ProductCardProps) {
         ) : (
           <ProductIllustration type={product.illustration} />
         )}
+        {images.length > 1 ? (
+          <>
+            <button
+              type="button"
+              className="prod-nav prev"
+              aria-label="Image précédente"
+              onClick={(event) => {
+                event.stopPropagation();
+                setActive((i) => (i - 1 + images.length) % images.length);
+              }}
+            >
+              <span aria-hidden="true">‹</span>
+            </button>
+            <button
+              type="button"
+              className="prod-nav next"
+              aria-label="Image suivante"
+              onClick={(event) => {
+                event.stopPropagation();
+                setActive((i) => (i + 1) % images.length);
+              }}
+            >
+              <span aria-hidden="true">›</span>
+            </button>
+          </>
+        ) : null}
         {images.length > 1 ? (
           <div className="prod-dots" role="tablist" aria-label="Images du produit">
             {images.map((_, i) => (
